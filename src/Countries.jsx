@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CountryCard from './CountryCard';
+import axios from 'axios';
 
 const Countries = () => {
     const [countries, setCountries] = useState([]);
@@ -13,6 +14,7 @@ const Countries = () => {
             .catch((error) => console.log(error));
         
     }, []);
+
 
   return (
     <div style={{
