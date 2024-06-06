@@ -8,10 +8,18 @@ const Countries = () => {
     const API_URL = "https://restcountries.com/v3.1/all";
 
     useEffect(() => {
-        fetch(API_URL)
-            .then((res) => res.json())
-            .then((data) => setCountries(data))
-            .catch((error) => console.log(error));
+
+        const fetchCountries = async () => {
+            try {
+              const response = await axios.get(API_URL);
+              setCountries(response.data);
+
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+          };
+      
+        fetchCountries();
         
     }, []);
 
